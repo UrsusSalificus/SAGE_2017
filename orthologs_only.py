@@ -1,13 +1,13 @@
-# To extract paralogs from a list of homologs:
+# To extract orthologs from a list of homologs:
 
 import glob
-#import sys
+# import sys  # Used for sys.arg, but in induces permission error...
 
 # Path to the directory containing all the genomes:
 genomes_directory = "../../genome_files/"
 # Path to the input file (here the list of all homologs)
 oldfile = "../files/mclOutput"
-# Path to the output file (here the list of all the paralogs only)
+# Path to the output file (here the list of all the orthologs only)
 newfile = "../files/orthologs_only"
 
 ###
@@ -21,14 +21,14 @@ genomes = extract_genomes(path = genomes_directory)
 
 
 ###
-# Filter homolog list into list of paralogs only
+# Filter homolog list into list of orthologs only
 # Read a list of families, then keep if the number of genes in the family
 # equal the number of different genomes used to construct the homolog table,
 # then if it is equal, check if there is no dupplicate.
-# Keep all the families that pass both requirements family of paralogs only.
+# Keep all the families that pass both requirements family of orthologs only.
 # inputs:
 #   oldfile: Path to the input file (here the list of all homologs)
-#   newfile: Path to the output file (here the list of all the paralogs only)
+#   newfile: Path to the output file (here the list of all the orthologs only)
 #   genomes: Genomes used to create the homolog list
 ###
 def filter(oldfile, newfile, genomes):
@@ -42,7 +42,7 @@ def filter(oldfile, newfile, genomes):
             # Check if the number of members in the family equal the number of genomes
             # used to create the homolog list
             if len(splitted) == len(genomes):
-                # Check if there is no genome duplicate (indicates orthologs):
+                # Check if there is no genome duplicate (indicates paralogs):
                 all_genomes = []  # list initialization
                 # For each members (each look like 'genome_code'|'gene_number'):
                 # split them to keep only the genome code, and store each in a list

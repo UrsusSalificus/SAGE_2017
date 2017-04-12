@@ -6,7 +6,7 @@ This Repo contains all the script used to perform the core phylogeny on the diff
 Brief explanation of files found in this repo:
 
 ```
-paralogs_only.py  :  will extract paralogs, from a list of homologous genes.
+orthologs_only.py  :  will extract orthologs, from a list of homologous genes.
 to_have_test_homolog.sh : simple reminder of how to create a test file from bigger file
 
 ```
