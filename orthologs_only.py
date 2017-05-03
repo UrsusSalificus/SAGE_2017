@@ -13,23 +13,21 @@ newfile = "../files/orthologs_only"
 ###
 # Extract the genomes used when looking for homologs
 ###
-def extract_genomes(path):
-    return (glob.glob(path + "*.faa"))
-
-genomes = extract_genomes(path = genomes_directory)
-
-
+def extract_genomes(genomes_directory):
+    return (glob.glob(genomes_directory + "*.faa"))
 
 ###
 # Filter homolog list into list of orthologs only
-# Read a list of families, then keep if the number of genes in the family
-# equal the number of different genomes used to construct the homolog table,
+# Read a list of families, then keep if the number of genes in the family equal
+# the number of different genomes used to construct the homolog table,
 # then if it is equal, check if there is no dupplicate.
-# Keep all the families that pass both requirements family of orthologs only.
-# inputs:
-#   oldfile: Path to the input file (here the list of all homologs)
-#   newfile: Path to the output file (here the list of all the orthologs only)
-#   genomes: Genomes used to create the homolog list
+# Keep all the families that pass both requirements = family of orthologs only.
+# Inputs:
+#   - oldfile: Path to the input file (here the list of all homologs)
+#   - newfile: Path to the output file (here the list of all the orthologs only)
+#   - genomes: Genomes used to create the homolog list
+# Output:
+#   - A list of orthologs
 ###
 def filter(oldfile, newfile, genomes):
     # First open the output file in writing mode as 'outfile',
@@ -55,4 +53,5 @@ def filter(oldfile, newfile, genomes):
                     # If does, write the whole line (=family) in the output file
                     outfile.write(line)
 
+genomes = extract_genomes(genomes_directory = genomes_directory)
 filter(oldfile = oldfile, newfile = newfile, genomes = genomes)

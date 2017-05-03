@@ -7,7 +7,9 @@ Brief explanation of files found in this repo:
 
 ```
 orthologs_only.py  :  will extract orthologs, from a list of homologous genes.
-to_have_test_homolog.sh : simple reminder of how to create a test file from bigger file
-
+to_have_test_homolog.sh : simple reminder of how to create a test file from bigger file.
+fetching_aa.py : will extract sequences, from a list of orthologs.
+concatenating_all_aligned.py : will concatenate all the sequences of each species/strain
+LSF_submission : contains all the bsub (cluster jobs)
 ```
 
