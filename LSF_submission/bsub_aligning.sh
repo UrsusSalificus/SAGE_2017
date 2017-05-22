@@ -2,7 +2,6 @@
 
 # To use : bsub < ./bsub_aligning.sh
 # Will use multithread on same host (-n = number of cores, -R = same host)
-# Will
 
 #BSUB -L /bin/bash
 #BSUB -e error_MAFFT.txt
@@ -14,7 +13,13 @@
 
 module add SequenceAnalysis/MultipleSequenceAlignment/mafft/7.305;
 
+# Move to the folder containing all the families one wants to align
+cd /scratch/beegfs/monthly/mls_2016/phylogeny/files/DNA_ortholog_families_NOT_aligned/
+
 for i in $( find family* ); do
-    echo $i > lol.txt
-    #mafft --auto $i > /scratch/beegfs/monthly/mls_2016/phylogeny/files/ortholog_families_aligned/$i
+    # Specifying where we want the aligned family
+    mafft --auto $i > /scratch/beegfs/monthly/mls_2016/phylogeny/files/DNA_ortholog_families_aligned/$i
 done
+
+
+

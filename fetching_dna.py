@@ -1,5 +1,5 @@
 # To extract the sequence from a list of families of orthologs.
-
+# import multiprocessing #TODO
 import subprocess
 import sys
 
@@ -7,7 +7,7 @@ import sys
 codes_for_genomes = "../../genome_files/file_list"
 # Path to the list of orthologs
 list_of_orthologs = "../files/orthologs_only"
-# Path to the .faa files
+# Path to the .ffn files
 protein_sequences = "../../genome_files/"
 
 ###
@@ -78,7 +78,7 @@ def fetching_aa_sequence (dico, list_of_orthologs, protein_sequences):
                     #       - flag {print}  -> print the flagged lines
                     command = ['awk',
                                str('/\<' + genome_gene[1] + '\>/ {flag=1;next} />/{flag=0} flag {print}'),
-                               str(protein_sequences + dico[genome_gene[0]] + '.faa')
+                               str(protein_sequences + dico[genome_gene[0]] + '.ffn')
                                ]
                     # First want the output of the source command -> check_output()
                     # Secondly, we want to avoid to have the output as byte -> .decode(sys.stdout.encoding)
@@ -88,7 +88,7 @@ def fetching_aa_sequence (dico, list_of_orthologs, protein_sequences):
                     # LDB/LHV special case : 0000x to xxxxx = no problem
                     command = ['awk',
                                str('/' + genome_gene[1] + '/ {flag=1;next} />/{flag=0} flag {print}'),
-                               str(protein_sequences + dico[genome_gene[0]] + '.faa')
+                               str(protein_sequences + dico[genome_gene[0]] + '.ffn')
                                ]
                     gene_sequence = subprocess.check_output(command).decode(sys.stdout.encoding)
 
@@ -96,7 +96,7 @@ def fetching_aa_sequence (dico, list_of_orthologs, protein_sequences):
                     # Some are x0000 to xxxxx -> may have problem of multiple seq -> use newlines to split.
                     command = ['awk',
                                str('/' + genome_gene[1] + '/ {flag=1;next} />/{flag=0} flag {print}'),
-                               str(protein_sequences + dico[genome_gene[0]] + '.faa')
+                               str(protein_sequences + dico[genome_gene[0]] + '.ffn')
                                ]
                     gene_sequence = subprocess.check_output(command).decode(sys.stdout.encoding)
                     # First split by newline, then choose the first sequence.
@@ -109,7 +109,7 @@ def fetching_aa_sequence (dico, list_of_orthologs, protein_sequences):
                 list_each_family[k] = whole_sequence
                 # Update k -> at which member of the family we are
                 k += 1
-            newfile = "../files/aa_ortholog_families_NOT_aligned/" + "family_" + str(i)
+                newfile = "../files/DNA_ortholog_families_NOT_aligned/" + "family_" + str(i)
             # Now create a specific file for this family and write every sequence one after the other
             with open(newfile, 'w') as outfile:
                 for each_sequence in list_each_family:
@@ -118,4 +118,5 @@ def fetching_aa_sequence (dico, list_of_orthologs, protein_sequences):
             i += 1
 
 dico = extract_translation(codes_for_genomes = codes_for_genomes)
+
 fetching_aa_sequence(dico = dico, list_of_orthologs = list_of_orthologs, protein_sequences = protein_sequences)
