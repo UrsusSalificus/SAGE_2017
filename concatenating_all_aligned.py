@@ -4,11 +4,18 @@ from Bio import SeqIO
 import glob
 
 # Path to the directory containing all the orthologs families with aligned members/sequences
-aligned_files_directory = "../files/ortholog_families_aligned/"
+#aligned_files_directory = "../files/aa_ortholog_families_aligned/"  # Amino acid
+#aligned_files_directory = "../files/DNA_ortholog_families_aligned/"  # DNA aligned
+#aligned_files_directory = "../files/DNA_ortholog_families_NOT_aligned/"  # DNA not aligned
+aligned_files_directory = "../files/DNA_ortholog_families_aligned_by_aa/"  # DNA aligned by aa
+
 # Path to the directory containing the codes for the genomes:
 codes_for_genomes = "../../genome_files/file_list"
 # Path/name of the wanted output file
-newfile = "../files/concatanated_aligned_orthologs"
+#newfile = "../files/concatanated_aa_aligned_orthologs"   # Amino acid
+#newfile = "../files/concatanated_DNA_aligned_orthologs"   # DNA aligned
+#newfile = "../files/concatanated_DNA_NOT_aligned_orthologs"   # DNA not aligned
+newfile = "../files/concatanated_DNA_aligned_orthologs_by_aa"   # DNA aligned by aa
 
 
 ###
@@ -72,7 +79,7 @@ def concatenate_each_member(aligned_file_list, info, newfile):
             i += 1
 
 aligned_file_list = extract_aligned_files(aligned_files_directory = aligned_files_directory)
-dico = extract_translation(codes_for_genomes=codes_for_genomes)
+dico = extract_translation(codes_for_genomes = codes_for_genomes)
 info = extract_information(aligned_file_list = aligned_file_list, dico = dico)
 concatenate_each_member(aligned_file_list = aligned_file_list, info = info, newfile = newfile)
 

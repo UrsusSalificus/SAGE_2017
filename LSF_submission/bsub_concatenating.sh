@@ -2,6 +2,7 @@
 
 # To use : bsub < ./bsub_concatenating.sh
 # Will use multithread on same host (-n = number of cores, -R = same host)
+# Takes approximately 1 min for the 548 families.
 
 #BSUB -L /bin/bash
 #BSUB -e error_concat.txt

@@ -2,6 +2,8 @@
 
 # To use : bsub < ./bsub_aligning.sh
 # Will use multithread on same host (-n = number of cores, -R = same host)
+# Takes approximately 2:30 hours for the 548 families.
+
 
 #BSUB -L /bin/bash
 #BSUB -e error_MAFFT.txt
