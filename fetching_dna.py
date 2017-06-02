@@ -6,7 +6,7 @@ import sys
 # Path to the directory containing the codes for the genomes:
 codes_for_genomes = "../../genome_files/file_list"
 # Path to the list of orthologs
-list_of_orthologs = "../files/orthologs_only"
+list_of_orthologs = "../files/bee_only_orthologs_only"
 # Path to the .ffn files
 protein_sequences = "../../genome_files/"
 
@@ -109,7 +109,7 @@ def fetching_aa_sequence (dico, list_of_orthologs, protein_sequences):
                 list_each_family[k] = whole_sequence
                 # Update k -> at which member of the family we are
                 k += 1
-                newfile = "../files/DNA_ortholog_families_NOT_aligned/" + "family_" + str(i)
+                newfile = "../files/DNA_ortholog_families_NOT_aligned_bee_only/" + "family_" + str(i)
             # Now create a specific file for this family and write every sequence one after the other
             with open(newfile, 'w') as outfile:
                 for each_sequence in list_each_family:

@@ -7,7 +7,9 @@ import glob
 #aligned_files_directory = "../files/aa_ortholog_families_aligned/"  # Amino acid
 #aligned_files_directory = "../files/DNA_ortholog_families_aligned/"  # DNA aligned
 #aligned_files_directory = "../files/DNA_ortholog_families_NOT_aligned/"  # DNA not aligned
-aligned_files_directory = "../files/DNA_ortholog_families_aligned_by_aa/"  # DNA aligned by aa
+#aligned_files_directory = "../files/DNA_ortholog_families_aligned_by_aa_bee_only/"  # DNA aligned by aa
+aligned_files_directory = "../files/aa_ortholog_families_aligned_woutgroup/"  #  Amino acid without outgroup
+
 
 # Path to the directory containing the codes for the genomes:
 codes_for_genomes = "../../genome_files/file_list"
@@ -15,7 +17,9 @@ codes_for_genomes = "../../genome_files/file_list"
 #newfile = "../files/concatanated_aa_aligned_orthologs"   # Amino acid
 #newfile = "../files/concatanated_DNA_aligned_orthologs"   # DNA aligned
 #newfile = "../files/concatanated_DNA_NOT_aligned_orthologs"   # DNA not aligned
-newfile = "../files/concatanated_DNA_aligned_orthologs_by_aa"   # DNA aligned by aa
+#newfile = "../files/concatanated_DNA_aligned_orthologs_by_aa_bee_only"   # DNA aligned by aa
+newfile = "../files/concatanated_aa_aligned_orthologs_woutgroup"   # Amino acid without outgroup
+
 
 
 ###

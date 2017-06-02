@@ -6,11 +6,11 @@ from Bio import codonalign
 import glob
 
 # Path to the input directory containing the aligned families of amino acid sequences:
-aligned_aa_files_directory = "../files/aa_ortholog_families_aligned/"
+aligned_aa_files_directory = "../files/aa_ortholog_families_aligned_bee_only/"
 # Path to the input directory containing the unaligned families of nucleotide sequences:
-unaligned_dna_files_directory = "../files/DNA_ortholog_families_NOT_aligned/"
+unaligned_dna_files_directory = "../files/DNA_ortholog_families_NOT_aligned_bee_only/"
 # Path to the output directory which will contain the aligned families of nucleotide sequences:
-aligned_dna_files_directory = "../files/DNA_ortholog_families_aligned_by_aa/"
+aligned_dna_files_directory = "../files/DNA_ortholog_families_aligned_by_aa_bee_only/"
 
 ###
 # Extract the families to translate the different codes

@@ -7,7 +7,7 @@
 #BSUB -L /bin/bash
 #BSUB -e error_purging.txt
 #BSUB -J purging
-#BSUB -n 10
+#BSUB -n 24
 #BSUB -M 10485760
 
 python3 remove_genome.py

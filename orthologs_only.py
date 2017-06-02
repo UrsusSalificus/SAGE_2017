@@ -1,7 +1,6 @@
 # To extract orthologs from a list of homologs:
 
 import glob
-# import sys  # Used for sys.arg, but in induces permission error...
 
 # Path to the directory containing all the genomes:
 genomes_directory = "../../genome_files/"

@@ -12,5 +12,14 @@
 
 module add Phylogeny/raxml/8.2.9;
 
+out_folder=$'/scratch/beegfs/monthly/mls_2016/phylogeny/files/phylogenetic_trees/aa_ML_bootstrap_woutgroup/'
+if [ ! -d "$out_folder" ]; then
+  mkdir $out_folder
+fi
+cd $out_folder
+
+# Copy the concatanated amino acid squences (without outgroups) in the folder.
+cp /scratch/beegfs/monthly/mls_2016/phylogeny/files/concatanated_aa_aligned_orthologs_woutgroup .
+
 # ML,  bootstrap
-raxmlHPC -m PROTGAMMAWAG -x 12345 -p 12345 -s concatanated_aligned_orthologs_woutgroups -# 500 -n ML_bootstrap
+raxmlHPC -m PROTGAMMAWAG -x 12345 -p 12345 -s concatanated_aa_aligned_orthologs_woutgroup -# 500 -n ML_bootstrap_woutgroup

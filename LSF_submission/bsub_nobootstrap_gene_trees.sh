@@ -14,7 +14,11 @@ module add Phylogeny/raxml/8.2.9;
 name=$'aa_ML_noboot'
 
 # Move to the folder containing all the families one wants to align
-cd /scratch/beegfs/monthly/mls_2016/phylogeny/files/aa_ortholog_families_aligned/
+# 1) All genomes:
+#cd /scratch/beegfs/monthly/mls_2016/phylogeny/files/aa_ortholog_families_aligned/
+# 2) Without outgroups:
+cd /scratch/beegfs/monthly/mls_2016/phylogeny/files/aa_ortholog_families_aligned_woutgroup/
+
 all_families=$( find family* )
 
 cd /scratch/beegfs/monthly/mls_2016/phylogeny/files/phylogenetic_trees/aa_ML_noboot_gene_trees/all_families/

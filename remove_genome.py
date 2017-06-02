@@ -1,21 +1,35 @@
 from Bio import SeqIO
 
-# Will take out all the genomes of species not in bees
-to_take_out=['Hon2', 'Bin4', 'Ljoh', 'Lgas', 'Ldel', 'Lkef', 'Lhel', 'Lamy', 'Laci']
+# Path to the directory containing the codes for the genomes:
+codes_for_genomes = "../files/reduced_file_list"
+to_purge_file = "../files/orthologs_only"
+purged_file = "../files/bee_only_orthologs_only"
 
-to_purge_file = "../files/concatanated_DNA_aligned_orthologs_by_aa"
-purged_file = "../files/bee_only_concatanated_DNA_aligned_orthologs_by_aa"
+###
+# Extract the indices to translate the different codes
+###
+def extract_translation (codes_for_genomes):
+    translation = {}
+    with open(codes_for_genomes, 'r') as codes:
+        # We want to skip the first line (headers), thus make it a iterable object, and jumping first one
+        codes = iter(codes)
+        next(codes)
+        for line in codes:
+            splitted = line.split()
+            # Here, will take the third column (OrthoMCL_prefix column) as keys
+            # And the second column (Strain_prefix) as value
+            translation[splitted[2]] = splitted[1]
+    return(translation)
 
 # Will purge the concatanated sequences of these unwanted genomes
-with open(to_purge_file, 'r') as input:
-    aa_records = SeqIO.parse(input, "fasta")
-    kept = []
-    for each_record in aa_records:
-        if each_record.id not in to_take_out:
-            kept.append(each_record)
-    with open (purged_file, 'w') as outfile:
-        for each_sequence in kept:
-            index = ">" + str(each_sequence.id) + "\n"
-            outfile.write(index)
-            sequence = str(each_sequence.seq) + "\n"
-            outfile.write(sequence)
+def purge_file(to_purge_file, purged_file, dico):
+    with open(to_purge_file, 'r') as input, open (purged_file, 'w') as outfile:
+        for each_family in input:
+            splitted_family = each_family.split()
+            for each_member in splitted_family:
+                if each_member.split('|')[0] in dico.keys():
+                    outfile.write(each_member + '\t')
+            outfile.write('\n')
+
+dico = extract_translation(codes_for_genomes = codes_for_genomes)
+purge_file(to_purge_file = to_purge_file, purged_file = purged_file, dico = dico)
