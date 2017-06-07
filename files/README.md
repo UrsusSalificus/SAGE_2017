@@ -1,4 +1,4 @@
-#### Data subdirectory
+#### Files subdirectory
 Contain all the output of the analyses.
   
 * `aa_ortholog_families_*` : directories containing the amino acid sequences of all 548 families in separate files,

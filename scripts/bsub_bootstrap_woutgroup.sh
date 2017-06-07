@@ -5,7 +5,7 @@
 
 #BSUB -L /bin/bash
 #BSUB -J w_bootstrap
-#BSUB -e error_%J.txt
+#BSUB -e error_w_bootstrap.txt
 #BSUB -n 64
 #BSUB –R "span[hosts=1]"
 #BSUB -M 40194304

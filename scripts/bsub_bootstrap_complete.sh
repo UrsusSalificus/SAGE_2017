@@ -4,10 +4,10 @@
 # Will use multithread on same host (-n = number of cores, -R one the same node/host)
 
 #BSUB -L /bin/bash
-#BSUB -J complete_bootstrap
-#BSUB -e error_%J.txt
+#BSUB -J c_bootstrap
+#BSUB -e error_c_bootstrap.txt
 #BSUB -n 64
-#BSUB –R "span[ptile=64]"
+#BSUB –R "span[hosts=1]"
 #BSUB -M 40194304
 #BSUB -R "rusage[mem=40000]"
 
@@ -23,5 +23,5 @@ cd ../files/phylogenetic_trees/aa_bootstrap_complete
 # We will use the hybrid parallel version, which do both MPI and multi-threading
 # We compute less threads (-T) that there is available cores in the node to avoid any problem
 # We will let RAxML decide how many bootstrap it needs by setting -N autoMRE
-raxmlHPC-HYBRID -m PROTGAMMAWAG -x 12345 -p 12345 -s ../../concatanated_aa_aligned_orthologs \
+raxmlHPC-HYBRID -m PROTGAMMAWAG -x 12345 -p 12345 -s ../../concatanated_aa_aligned_orthologs_complete \
  -N autoMRE -n complete_bootstrap -T 58 ­­set­thread­affinity

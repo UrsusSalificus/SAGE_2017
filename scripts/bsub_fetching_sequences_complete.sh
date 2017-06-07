@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# To use : bsub < ./bsub_fetching_sequences.sh
+# To use : bsub < ./bsub_fetching_sequences_complete.sh
 # Will use multithread on same host (-n = number of cores, -R = same host)
 # NOTE: fetching_sequences.py uses 16 core to parallel, if you change the BSUB setting, change it also in the .py!
 # (Under the definition of the function 'to_parallel' -> '(n_jobs=16)')

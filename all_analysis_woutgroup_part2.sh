@@ -7,12 +7,12 @@
 #   1) First change directory (cd) to the folder containing this script
 #   2) bash all_analysis_woutgroup_part2.sh
 # Average time taken at each operation indicated by []
-# Total time of part 2:
+# Total time of part 2: 30 hours
 
-### Gene trees  []
+### Gene trees  [30 hours = 1 days, 6 hours]
 bsub < ./bsub_gene_trees_woutgroup.sh
 
-### Concatenating in one file   [instant]
+### Concatenating in one file   [1 minute]
 bsub -w "ended(w_gene)" < ./bsub_concat_gene_woutgroup.sh
 
 ### Getting single gene trees support   [instant]

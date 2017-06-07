@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# To use : bsub < ./bsub_aligning.sh
+# To use : bsub < ./bsub_aligning_complete.sh
 # Will use multithread on same host (-n = number of cores, -R = same host)
 # Takes approximately 10 min for the 548 families.
 

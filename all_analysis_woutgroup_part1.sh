@@ -34,7 +34,7 @@ bsub -w "ended(concat)" < ./bsub_nobootstrap_woutgroup.sh
 
 ### Get support [instant]
 bsub -w "ended(w_bootstrap)&&ended(w_noboot)" < ./bsub_support_woutgroup.sh
-# Supported tree :  files/phylogenetic_trees/aa_nobootstrap_woutgroup/RAxML_bipartitions.woutgroup_boot_supported.tree
+# Supported bootstrap tree :  files/phylogenetic_trees/aa_nobootstrap_woutgroup/RAxML_bipartitions.woutgroup_boot_supported.tree
 
 
 

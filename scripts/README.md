@@ -1,4 +1,4 @@
-#### Data subdirectory
+#### Scripts subdirectory
 Contain all the scripts needed to perform the analyses:
 
 ##### Python scripts
